@@ -71,7 +71,7 @@ const UserForm = (
       />
      
      <Input    
-      hidden = {data.isAdmin? true : false} 
+      hidden = {data.first? true : false} 
        name="password"
         label="password"
         type="password"

@@ -3,13 +3,13 @@ import useUsers from "../hooks/useUsers";
 import { useNavigate } from "react-router-dom";
 import initialUserForm from "../helpers/initialForms/initialUserForm";
 import userSchema from "../models/joi-schema/userSchema";
-import normalizeUser from "../helpers/normalization/normalizeUser";
+import normalizeUserNoPassword from "../helpers/normalization/normalizeUserNoPassword";
 import ROUTES from "../../routes/routesModel";
 
 import { Container } from "@mui/material";
 import UserForm from "../components/UserForm";
 import useForm from "../../forms/hooks/useForm";
-import mapUserToModel from '../helpers/normalization/mapUserToModel';
+import mapUserNoPassword from '../helpers/normalization/mapUserNoPassword';
 
 const EditUserPage = () => {
   const {
@@ -21,15 +21,16 @@ const EditUserPage = () => {
 
   const { value, ...rest } = useForm(initialUserForm, userSchema, () =>
   handleUpdateUser(user._id, {
-      ...normalizeUser({ ...value.data }),
+      ...normalizeUserNoPassword({ ...value.data }),
       isAdmin: user.isAdmin,
+      
     })
   );
 
   useEffect(() => {
     handleGetUser(user._id).then(data => {
       if (!user._id) return navigate(ROUTES.CARDS);
-      const modeledUser = mapUserToModel(data);
+      const modeledUser = mapUserNoPassword(data);
       rest.setData(modeledUser);
     });
   }, []);

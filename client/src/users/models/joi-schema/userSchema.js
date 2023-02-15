@@ -19,7 +19,7 @@ const userSchema = {
     )
     .rule({ message: "user image must be a valid url" })
     .allow(""),
-  alt: Joi.string().min(2).max(256).allow(""),
+  alt: Joi.string().max(256).allow(""),
   state: Joi.string().allow(""),
   country: Joi.string().min(2).max(256).required(),
   city: Joi.string().min(2).max(256).required(),
@@ -27,8 +27,6 @@ const userSchema = {
   houseNumber: Joi.number().required(),
   zip: Joi.number().allow(""),
   isBusiness: Joi.boolean().required(),
-
-
 };
 
 export default userSchema;
