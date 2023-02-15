@@ -7,7 +7,7 @@ import normalizeUserNoPassword from "../helpers/normalization/normalizeUserNoPas
 import ROUTES from "../../routes/routesModel";
 
 import { Container } from "@mui/material";
-import UserForm from "../components/UserForm";
+import UserFormNoPassword from "../components/UserFormNoPassword";
 import useForm from "../../forms/hooks/useForm";
 import mapUserNoPassword from '../helpers/normalization/mapUserNoPassword';
 
@@ -44,7 +44,7 @@ const EditUserPage = () => {
         alignItems: "center",
       }}
     >
-      <UserForm
+      <UserFormNoPassword
         title="Edit User form"
         onSubmit={rest.onSubmit}
         onReset={rest.handleReset}

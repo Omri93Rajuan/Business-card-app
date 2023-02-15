@@ -1,6 +1,14 @@
 import { useState, useCallback, useMemo } from "react";
 import useAxios from "../../hooks/useAxios";
-import {  deleteUser, editUserData, getUserData, getUsers, login, signup,changeBusinessStatus } from "../services/usersApiService";
+import {
+  deleteUser,
+  editUserData,
+  getUserData,
+  getUsers,
+  login,
+  signup,
+  changeBusinessStatus,
+} from "../services/usersApiService";
 import {
   getUser,
   removeToken,
@@ -49,7 +57,8 @@ const useUsers = () => {
   const handleLogout = useCallback(() => {
     removeToken();
     setUser(null);
-  }, [setUser]);
+    navigate(ROUTES.CARDS);
+  }, [navigate, setUser]);
 
   const handleSignup = useCallback(
     async (userFromClient) => {
@@ -70,7 +79,7 @@ const useUsers = () => {
     try {
       setLoading(true);
       const user = await getUserData(userId);
-      requestStatus(false,null,null,user);
+      requestStatus(false, null, null, user);
       return user;
     } catch (error) {
       requestStatus(false, error, null);
@@ -81,7 +90,7 @@ const useUsers = () => {
     try {
       setLoading(true);
       const users = await getUsers();
-      requestStatus(false,null,users,user);
+      requestStatus(false, null, users, user);
       return users;
     } catch (error) {
       requestStatus(false, error, null);
@@ -93,33 +102,39 @@ const useUsers = () => {
       setLoading(true);
       const user = await editUserData(userId, userFromClient);
       requestStatus(false, null, null, user);
-      snack("success", "The business user has been successfully updated");
-      navigate(ROUTES.CARDS);
+      handleLogout()
+      snack("success", "The business user has been successfully updated, now sign in again");
     } catch (error) {
       requestStatus(false, error, null);
     }
-  }, []);;
+  }, []);
 
-  const handleDeleteUser = useCallback(async (userId) => {
-    try {
-      setLoading(true);
-      await deleteUser(userId);
-      snack("success", "The business card has been successfully deleted");
-    } catch (error) {
-      requestStatus(false, error, null);
-    }
-  }, [snack]);
+  const handleDeleteUser = useCallback(
+    async (userId) => {
+      try {
+        setLoading(true);
+        await deleteUser(userId);
+        snack("success", "The business card has been successfully deleted");
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [snack]
+  );
 
-  const handleChangeBusinessStatus = useCallback(async (userId, userFromClient) => {
-    try {
-      setLoading(true);
-      const user = await changeBusinessStatus(userId, userFromClient);
-      requestStatus(false, null, users, user);
-      snack("success", "The business user has been successfully updated");
-    } catch (error) {
-      requestStatus(false, error, null);
-    }
-  }, [requestStatus, snack, users]);;
+  const handleChangeBusinessStatus = useCallback(
+    async (userId, userFromClient) => {
+      try {
+        setLoading(true);
+        const user = await changeBusinessStatus(userId, userFromClient);
+        requestStatus(false, null, users, user);
+        snack("success", "The business user has been successfully updated");
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [requestStatus, snack, users]
+  );
 
   const value = useMemo(
     () => ({ isLoading, error, user, users }),
@@ -135,7 +150,7 @@ const useUsers = () => {
     handleUpdateUser,
     handleGetUsers,
     handleDeleteUser,
-    handleChangeBusinessStatus
+    handleChangeBusinessStatus,
   };
 };
 

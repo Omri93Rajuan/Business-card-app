@@ -30,8 +30,6 @@ const Input = ({
         onChange={onChange}
         fullWidth
         autoComplete="off"
-        hidden = {false}
-    
       />
     </Grid>
   );

@@ -71,15 +71,6 @@ const UserForm = (
         sm={6}
       />
      
-     <Input    
-    name="password"
-        label="password"
-        type="password"
-        error={errors.password}
-        onChange={onInputChange}
-        data={data}
-        sm={6}
-      />
       <Input
         name="url"
         label="image url"
