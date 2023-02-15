@@ -49,7 +49,7 @@ const Users = ({ users, onDelete, onChangeStatus }) => {
       field: 'change',
       headerName: "change Business",
       type: 'actions',
-      width: 140,
+      width: 130,
       getActions: (params) => [
        <GridActionsCellItem
         icon={<CachedIcon />}

@@ -11,7 +11,7 @@ import Users from "../components/Users";
 
 const CrmPage = () => {
   const { user } = useUser();
-  const { handleGetUsers,handleDeleteUser, value } = useUsers();
+  const { handleGetUsers,handleDeleteUser,handleChangeBusinessStatus, value } = useUsers();
   const { error, isLoading, users } = value;
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const CrmPage = () => {
   };
 
   const onUpdateUser = async (userId) => {
-    await (userId);
+    await handleChangeBusinessStatus(userId,user);
     await handleGetUsers();
   };
 

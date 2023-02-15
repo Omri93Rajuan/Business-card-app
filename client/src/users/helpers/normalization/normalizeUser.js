@@ -4,6 +4,7 @@ const normalizeUser = (user) => ({
     middle: user.middle,
     last: user.last,
   },
+  password : user.password,
   phone: user.phone,
   email: user.email,
   address: {
@@ -11,8 +12,8 @@ const normalizeUser = (user) => ({
     country: user.country,
     city: user.city,
     street: user.street,
-    zip: user.zip,
     houseNumber: user.houseNumber,
+    zip: user.zip,
   },
   image: {
     url: user.url,

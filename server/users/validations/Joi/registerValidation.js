@@ -43,11 +43,13 @@ const registerValidation = user => {
       .required(),
     address: Joi.object()
       .keys({
-        state: Joi.string().allow(''),
+        state: Joi.string().allow(""),
         country: Joi.string().required(),
         city: Joi.string().required(),
         street: Joi.string().required(),
         houseNumber: Joi.number().required(),
+        zip: Joi.number().allow(""),
+
       })
       .required(),
 

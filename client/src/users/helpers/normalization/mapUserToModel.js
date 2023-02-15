@@ -3,6 +3,7 @@ const mapUserToModel = (user) => {
       first: user.name.first,
       middle: user.name.middle,
       last: user.name.last,
+      password : user.password,
       phone: user.phone,
       email: user.email,
       url: user.image.url,

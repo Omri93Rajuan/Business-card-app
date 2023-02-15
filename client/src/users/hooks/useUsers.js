@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import useAxios from "../../hooks/useAxios";
-import {  deleteUser, editUserData, getUserData, getUsers, login, signup } from "../services/usersApiService";
+import {  deleteUser, editUserData, getUserData, getUsers, login, signup,changeBusinessStatus } from "../services/usersApiService";
 import {
   getUser,
   removeToken,
@@ -76,6 +76,7 @@ const useUsers = () => {
       requestStatus(false, error, null);
     }
   }, []);
+
   const handleGetUsers = useCallback(async () => {
     try {
       setLoading(true);
@@ -85,7 +86,7 @@ const useUsers = () => {
     } catch (error) {
       requestStatus(false, error, null);
     }
-  }, [requestStatus]);
+  }, [requestStatus, user]);
 
   const handleUpdateUser = useCallback(async (userId, userFromClient) => {
     try {
@@ -109,6 +110,17 @@ const useUsers = () => {
     }
   }, [snack]);
 
+  const handleChangeBusinessStatus = useCallback(async (userId, userFromClient) => {
+    try {
+      setLoading(true);
+      const user = await changeBusinessStatus(userId, userFromClient);
+      requestStatus(false, null, users, user);
+      snack("success", "The business user has been successfully updated");
+    } catch (error) {
+      requestStatus(false, error, null);
+    }
+  }, [requestStatus, snack, users]);;
+
   const value = useMemo(
     () => ({ isLoading, error, user, users }),
     [isLoading, error, user, users]
@@ -123,7 +135,7 @@ const useUsers = () => {
     handleUpdateUser,
     handleGetUsers,
     handleDeleteUser,
-
+    handleChangeBusinessStatus
   };
 };
 

@@ -4,7 +4,6 @@ const { DEFAULT_VALIDATION } = require("../../helpers/MongooseValidators");
 const Address = new mongoose.Schema({
   state: {
     type: String,
-    minLength: 2,
     maxLength: 256,
     trim: true,
     lowercase: true,
