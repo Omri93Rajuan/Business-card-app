@@ -22,7 +22,7 @@ don't go anywhere
 
 ## client side
 ```bash
-server/npm i
+client/npm i
 ```
 
 ```bash
