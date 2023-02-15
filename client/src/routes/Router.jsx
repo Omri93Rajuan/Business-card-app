@@ -53,7 +53,7 @@ const Router = () => {
       <Route path={ROUTES.FAV_CARDS} element={<FavCardsPage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
-      <Route path={`${ROUTES.USER_PROFILE}/:userId`} element={<ProfilePage />} />
+      <Route path={ROUTES.USER_PROFILE} element={<ProfilePage />} />
       <Route path={ROUTES.EDIT_USER} element={<EditUserPage />} />
       <Route path={ROUTES.CRM} element={<CrmPage/>} />
 
