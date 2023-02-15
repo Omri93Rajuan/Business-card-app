@@ -149,12 +149,10 @@ useAxios();
       const card = await adminNumber(cardId, normalizedCard);
       requestStatus(false, null, cards, card);
       snack("success", "The business card has been successfully updated");
-      
-      navigate(ROUTES.CARDS);
     } catch (error) {
       requestStatus(false, error, null);
     }
-  }, [cards, navigate, snack]);
+  }, [cards, snack]);
 
 
   

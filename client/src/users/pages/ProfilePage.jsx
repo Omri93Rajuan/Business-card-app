@@ -13,7 +13,6 @@ const ProfilePage = () => {
   const { handleGetUser, value } = useUsers();
   const { isLoading, error,user} = value;
 
-
 useEffect(() => {
    handleGetUser(user._id)
 .then(data => {

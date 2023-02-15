@@ -2,12 +2,12 @@ import { arrayOf, func } from "prop-types";
 import userType from "../types/userType";
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
-import CachedIcon from '@mui/icons-material/Cached';
+import CachedIcon from "@mui/icons-material/Cached";
+import { useNavigate } from "react-router-dom";
+import ROUTES from "../../routes/routesModel";
 
-const Users = ({ users, onDelete, onChangeStatus }) => {
-
-
-
+const Users = ({ users, onDelete, onChangeStatus, handleGetUser }) => {
+const navigate = useNavigate()
   const columns = [
     { field: "idNumber", headerName: "Number", width: 90 },
     { field: "firstName", headerName: "First name", width: 130 },
@@ -15,13 +15,13 @@ const Users = ({ users, onDelete, onChangeStatus }) => {
     { field: "email", headerName: "Email", width: 130 },
     { field: "phone", headerName: "Phone", width: 130 },
 
-
     {
       field: "isBusiness",
       headerName: "Business",
       type: "boolean",
       width: 90,
       editable: true,
+      
     },
     {
       field: "isAdmin",
@@ -31,34 +31,33 @@ const Users = ({ users, onDelete, onChangeStatus }) => {
       editable: true,
     },
     {
-      field: 'Delete',
+      field: "Delete",
       headerName: "Delete",
-      type: 'actions',
+      type: "actions",
       width: 80,
       getActions: (params) => [
         <GridActionsCellItem
           icon={<DeleteIcon />}
           label="Delete"
-          onClick={onDelete(params)
-          
-          }
+          onClick={onDelete(params)}
+          sx={{display:!params.row.isAdmin ?"block" : "none"}}
         />
       ],
     },
     {
-      field: 'change',
+      field: "change",
       headerName: "change Business",
-      type: 'actions',
+      type: "actions",
       width: 130,
       getActions: (params) => [
-       <GridActionsCellItem
-        icon={<CachedIcon />}
-        label="Change"
-        onClick={onChangeStatus(params)}
-      />
+        <GridActionsCellItem
+          icon={<CachedIcon />}
+          label="Change"
+          onClick={onChangeStatus(params)}
+        />,
       ],
     },
-];
+  ];
   const rows = Array.from(users, (user, i) => {
     return {
       id: user._id,
@@ -80,10 +79,11 @@ const Users = ({ users, onDelete, onChangeStatus }) => {
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}
+          onRowClick={(params) => navigate(`${ROUTES.USER_PROFILE}/${params.id}`)}
+
         ></DataGrid>
       </div>
     </>
-   
   );
 };
 

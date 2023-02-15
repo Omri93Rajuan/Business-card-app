@@ -45,9 +45,9 @@ const CrmPage = () => {
       {users && (
         <Users
           users={users}
-          onDelete={(parmas) => (id) => {
-            onDeleteUser(parmas.id);
-          }}
+          onDelete={(parmas) => (id) =>{
+             onDeleteUser(parmas.id)}
+          }
           onChangeStatus={(parmas) => (id) => {
             onUpdateUser(parmas.id);
           }}

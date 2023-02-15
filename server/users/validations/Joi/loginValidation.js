@@ -8,7 +8,7 @@ const loginValidation = user => {
       )
       .rule({ message: 'user "mail" mast be a valid mail' })
       .required(),
-
+      
     password: Joi.string()
       .ruleset.regex(
         /((?=.*\d{1})(?=.*[A-Z]{1})(?=.*[a-z]{1})(?=.*[!@#$%^&*-]{1}).{7,20})/
@@ -20,6 +20,7 @@ const loginValidation = user => {
       .required(),
   });
   return schema.validate(user);
+  
 };
 
 module.exports = loginValidation;
