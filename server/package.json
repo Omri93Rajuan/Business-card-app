@@ -1,0 +1,29 @@
+{
+  "name": "app.listen",
+  "version": "1.0.0",
+  "description": "Creating a server for business cards app",
+  "main": "server.js",
+  "scripts": {
+    "start": "set NODE_ENV=production&&  node .",
+    "dev": "set NODE_ENV=development&& nodemon ."
+  },
+  "author": "OmriRajuan",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^6.7.0",
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.1",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.1",
+    "joi": "^17.6.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
