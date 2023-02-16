@@ -1,4 +1,4 @@
-const normalizeCard = card => {
+const normalizeCard = (card) => {
   return {
     title: card.title,
     subtitle: card.subtitle,
@@ -18,8 +18,7 @@ const normalizeCard = card => {
       houseNumber: card.houseNumber,
       zip: card.zip,
     },
-    bizNumber:card.bizNumber
-
+    bizNumber: card.bizNumber,
   };
 };
 

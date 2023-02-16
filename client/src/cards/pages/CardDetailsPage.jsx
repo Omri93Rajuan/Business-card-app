@@ -22,7 +22,6 @@ const CardDetailsPage = () => {
   const { cardId } = useParams();
   const { handleGetCard, handleAdminNumber, value } = useCards();
   const { isLoading, error, card, } = value;
-console.log();
 
   useEffect(() => {
     handleGetCard(cardId).then((data) => {
@@ -31,7 +30,6 @@ console.log();
     });
 
   }, [cardId, handleGetCard]);
-
   return (
     <Container>
       <PageHeader
@@ -50,13 +48,13 @@ console.log();
               src={cardData.imageUrl}
               sx={{ width: 300, height: 300 }}
             />
-            <Typography variant="h2" color="initial">
+            <Typography variant="h2" color="-moz-initial">
               {card.title}
             </Typography>
-            <Typography variant="h3" color="initial">
+            <Typography variant="h3" color="-moz-initial">
               {card.subtitle}
             </Typography>
-            <Typography variant="h4" color="initial">
+            <Typography variant="h4" color="-moz-initial">
               {card.bizNumber}
             </Typography>
 
@@ -88,29 +86,30 @@ console.log();
           >
             <Grid item xs={12} sm={6} md={3} align="center">
               <EmailIcon fontSize="large" color="primary" />
-              <Typography variant="h5" color="success">
+              <Typography variant="h5" color="-moz-initial">
                 {cardData.email}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3} align="center">
               <PhoneIphoneIcon fontSize="large" color="primary" />
-              <Typography variant="h5" color="success">
+              <Typography variant="h5" color="-moz-initial">
                 {cardData.phone}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3} align="center">
               <ComputerIcon fontSize="large" color="primary" />
-              <Typography variant="h5" color="success">
+              <Typography variant="h5" color="-moz-initial">
                 {cardData.webUrl}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3} align="center">
               <BusinessIcon fontSize="large" color="primary" />
-              <Typography variant="h5" color="success">
+              <Typography variant="h5" color="-moz-initial">
                 {cardData.street}
               </Typography>
             </Grid>
-          </Grid>{" "}
+            
+          </Grid>
         </>
       )}
     </Container>

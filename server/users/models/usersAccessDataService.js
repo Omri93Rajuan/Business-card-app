@@ -16,7 +16,8 @@ const registerUser = async (normalizeUser) => {
       user = lodash.pick(user, ["name", "email", "_id"]);
       return Promise.resolve(user);
     } catch (error) {
-      return handleBadRequest("Mongoose", error);
+      error.status = 404;
+      return Promise.reject(error);
     }
   }
 
@@ -28,9 +29,9 @@ const loginUser = async ({ email, password }) => {
   if (DB === "MONGODB") {
     try {
         const user = await User.findOne({ email });
-        if (!user) {
+        if (!user) 
           throw new Error("Authentication Error: Invalid email or password");
-        }
+        
 
         const validPassword = comparePassword(password, user.password);
      

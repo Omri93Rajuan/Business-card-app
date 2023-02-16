@@ -19,7 +19,6 @@ const router = express.Router();
 router.get("/my-cards", auth, async (req, res) => {
   try {
     const { isBusiness, _id } = req.user;
-    console.log(_id);
     if (!isBusiness)
       return handleError(
         res,
@@ -124,7 +123,6 @@ router.patch("/adminNumber/:id",auth, async (req, res) => {
     const cardId = req.params.id;
     const {_id,isAdmin} = req.user
   const {bizNumber} = req.body
-  console.log(bizNumber);
 if(!isAdmin)
 return handleError(
   res,

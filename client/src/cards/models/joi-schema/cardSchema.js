@@ -31,7 +31,6 @@ const cardSchema = {
   houseNumber: Joi.number().required(),
   zip: Joi.number(),
   bizNumber: Joi.any(),
-
 };
 
 export default cardSchema;

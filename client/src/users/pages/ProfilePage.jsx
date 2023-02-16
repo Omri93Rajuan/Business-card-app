@@ -32,7 +32,6 @@ const ProfilePage = () => {
           <Grid
             container
             minHeight={180}
-            spacing={5}
             mb={5}
             mt={5}
             alignItems="center"
@@ -70,7 +69,7 @@ const ProfilePage = () => {
                 >{`Admin : ${user.isAdmin}`}</Typography>
              
             </Grid>
-            <Grid item spacing={0}>
+            <Grid item >
               
                 <Avatar
                   alt="busienes card img"
