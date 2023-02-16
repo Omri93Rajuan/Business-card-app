@@ -17,7 +17,7 @@ const MyCardsPage = () => {
 
   useEffect(() => {
     handleGetMyCards();
-  }, []);
+  }, [handleGetMyCards]);
 
   if (!user) return <Navigate replace to={ROUTES.CARDS} />;
 
