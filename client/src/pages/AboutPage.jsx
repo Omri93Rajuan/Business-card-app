@@ -23,7 +23,6 @@ const AboutPage = () => {
         <Grid item xs={12} md={8} alignSelf="center" sx={{fontSize:"20px"}}>
           <Typography
             sx={{ textAlign: "center", backgroundColor: "#A69897" }}
-            item
             variant="h2"
             color="initial"
           >
@@ -40,7 +39,6 @@ const AboutPage = () => {
       <Grid item xs={12} md={8} alignSelf="center" sx={{fontSize:"20px"}}>
           <Typography
             sx={{ textAlign: "center", backgroundColor: "#D9A491" }}
-            item
             variant="h2"
             color="initial"
           >
@@ -75,7 +73,6 @@ const AboutPage = () => {
         <Grid item xs={12} md={8} alignSelf="center" sx={{fontSize:"20px"}}>
           <Typography
             sx={{ textAlign: "center", backgroundColor: "#D9B855" }}
-            item
             variant="h2"
             color="initial"
           >
