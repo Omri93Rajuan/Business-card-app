@@ -20,7 +20,7 @@ server/npm run dev
 That's it, the server is working, 3 cards and 4 different users were created in the database and you can move forward to the client side
 don't go anywhere
 
-## client side
+## Client side
 ```bash
 client/npm i
 ```
@@ -46,6 +46,6 @@ I was Omri,
 If you want to reach me I'm available anytime on LinkedIn don't be shy to send me hey!!
 
 
-[linkdin](https://www.linkedin.com/in/omri-rajuan/)
-[GitHub](https://www.github.com/Omri93Rajuan)
+[**linkedin**](https://www.linkedin.com/in/omri-rajuan/)
+[**GitHub**](https://www.github.com/Omri93Rajuan)
 
