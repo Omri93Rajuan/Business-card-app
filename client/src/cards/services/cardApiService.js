@@ -49,7 +49,7 @@ export const deleteCard = async (cardId) => {
 
 export const editCard = async (cardId, normalaizedCard) => {
   try {
-    const { data } = await axios.patch(
+    const { data } = await axios.put(
       `${apiUrl}/cards/${cardId}`,
       normalaizedCard
     );
